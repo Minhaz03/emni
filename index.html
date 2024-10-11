@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy</title>
+
+    <!-- daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/04049ccd6c.js" crossorigin="anonymous"></script>
+
+    <style>
+        #lato-light {
+            font-family: "Lato", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        .active {
+            border: 1.5px solid rgb(14, 122, 129);
+            background: rgba(14, 122, 129, 0.1);
+        }
+
+        #spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgb(0, 0, 0, 0.1);
+            border-top: 4px solid #000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        /* Spinner animation */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body id="lato-light">
+    <header>
+        <nav class="w-11/12 mx-auto mt-5">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            <li><a class="text-[#131313] text-xl font-normal">Home</a></li>
+                            <li>
+                                <a class="text-[#131313] text-xl font-normal">Shop</a>
+                            </li>
+                            <li><a class="text-[#131313] text-xl font-normal">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex justify-center gap-2">
+                        <img class="w-max h-max" src="./images/logo.webp" alt="">
+                        <a class="text-xl font-bold">Peddy</a>
+                    </div>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li><a class="text-[#131313] text-xl font-normal">Home</a></li>
+                        <li>
+                            <a class="text-[#131313] text-xl font-normal">Shop</a>
+                        </li>
+                        <li><a class="text-[#131313] text-xl font-normal">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                        <div class="w-10 rounded-full">
+                            <img alt="Tailwind CSS Navbar component"
+                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </nav>
+
+        <section class="max-w-screen-xl mx-auto mt-14 mb-14">
+            <div class="text-center">
+                <h1 class="text-[#13131399] text-2xl font-semibold">Bringing Families Together ❤️‍🔥</h1> <br>
+                <h1 class="text-[#131313] text-6xl font-bold">Your Path to Adoption <br> Starts Here</h1> <br>
+                <h1 class="text-[#13131399] text-xl font-semibold">Welcome to our pet shop! We're passionate about
+                    providing happy, healthy homes for furry friends. <br> Discover a wide range of pets, supplies, and
+                    expert advice.</h1>
+                <br>
+                <button id="btn-view" class="btn bg-[#0E7A81] rounded-xl text-white text-xl"><a href="#main">View
+                        More</a></button>
+            </div>
+        </section>
+
+        <section class="max-w-screen-xl mx-auto mt-10 flex justify-center">
+            <img class="" src="./images/pet.webp" alt="">
+        </section>
+    </header>
+
+    <main id="main" class="mt-32 w-11/12 mx-auto">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-black text-[#131313]">Adopt Your Best Friend</h1> <br>
+            <h2 class="text-[#131313B3] text-xl font-medium">Until one has loved an animal, a part of one’s soul remains
+                unawakened. <br> The difference between friends and pets is that friends we allow into our company, pets
+                we allow into our solitude.</h2>
+        </div>
+
+        <!-- animal category -->
+        <div id="category" class="text-center lg:flex justify-between max-w-screen-xl mx-auto" onclick="handleSearch()">
+        </div>
+
+        <!-- spinner loader -->
+        <div id="spinner"></div>
+        
+
+        <!--  -->
+        <div class="grid-cols-1 text-center lg:flex justify-between mt-12 mb-12 max-w-screen-xl mx-auto">
+            <h1 class="text-2xl font-bold">Best Deal For You</h1>
+            <button class="btn gap-3 bg-[#0E7A81] text-white text-xl font-semibold">Sort By Price</button>
+        </div>
+
+
+        <!-- pet card details -->
+        <section class="max-w-screen-xl mx-auto grid grid-cols-2">
+            <div id="pet-details" class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:w-[1000px]">
+
+            </div>
+
+            <div id="liked-pets" class="grid grid-cols-2">
+
+            </div>
+        </section>
+
+
+        <!-- Open the modal using ID.showModal() method -->
+        <button id="showModal" class="btn hidden" onclick="customModal.showModal()">open modal</button>
+        <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="modal-content">
+
+                </div>
+                <div class="modal-action justify-center">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn text-[#0E7A81] bg-[#0E7A811A]  w-[250px] lg:w-[400px]">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+
+    </main>
+
+
+
+
+    <footer class="bg-[#131313]">
+        <footer class="footer w-11/12 mx-auto text-base-content p-10 mt-36 mb-0 lg:flex lg:justify-between">
+            <nav>
+                <div class="flex justify-center gap-2">
+                    <img class="w-max h-max" src="./images/logo.webp" alt="">
+                    <a class="text-xl font-bold text-white">Peddy</a>
+                </div> <br>
+                <a class="text-xl font-normal text-[#FFFFFFE6]">Location: av. Washington 165, NY CA 54003</a>
+                <a class="text-xl font-normal text-[#FFFFFFE6]">Phone: +31 85 964 47 25</a>
+                <a class="text-xl font-normal text-[#FFFFFFE6]">Email: info@yourdomain.com</a>
+                <a class="text-xl font-normal text-[#FFFFFFE6]">Openings hours: 9.00 AM - 5.00 PM</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title text-xl font-bold text-[#FFFFFFE6]">Useful Links</h6>
+                <a class="text-xl font-normal text-[#FFFFFF99]">Home</a>
+                <a class="text-xl font-normal text-[#FFFFFF99]">Animals</a>
+                <a class="text-xl font-normal text-[#FFFFFF99]">Foundation</a>
+                <a class="text-xl font-normal text-[#FFFFFF99]">Contact</a>
+                <a class="text-xl font-normal text-[#FFFFFF99]">About us</a>
+            </nav>
+            <nav>
+                <a class="mb-2 text-xl font-bold text-[#FFFFFFE6]">Drop a Message</a>
+                <label class="input input-bordered flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                        class="h-4 w-4 opacity-70">
+                        <path
+                            d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                        <path
+                            d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                    </svg>
+                    <input type="text" class="grow" placeholder="Email" />
+                </label>
+                <button class="btn text-white bg-[#0E7A81] w-[220px]">Subscribe</button>
+            </nav>
+        </footer>
+        <div class="flex justify-center pb-10 gap-5">
+            <i class="fa-brands fa-facebook text-3xl text-white "></i>
+            <i class="fa-brands fa-x-twitter text-3xl text-white"></i>
+            <i class="fa-brands fa-youtube text-3xl text-white"></i>
+            <i class="fa-brands fa-instagram text-3xl text-white"></i>
+        </div>
+        <aside class="flex justify-center pb-5">
+            <p class="px-16 lg:text-xl font-bold text-white">Copyright © {09.10.2024} - All right reserved by Peddy</p>
+        </aside>
+
+    </footer>
+
+
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
